@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  Home, Sun, Compass, Heart, Sparkles, MessageCircle, 
-  MapPin, ShieldCheck, Eye, Quote, Scroll, HandHelping, 
+import {
+  Home, Sun, Compass, Heart, Sparkles, MessageCircle,
+  MapPin, ShieldCheck, Eye, Quote, Scroll, HandHelping,
   User, Info, Map, List, Book, Calendar, Mail, Mic2,
   BookOpen, Star, Users, LucideIcon, Newspaper, Video,
   History as HistoryIcon,
@@ -26,80 +26,80 @@ interface NavItemData {
 }
 
 const navItems: NavItemData[] = [
-  { 
-    name: "Home", 
-    icon: Home, 
-    id: "home", 
+  {
+    name: "Home",
+    icon: Home,
+    id: "home",
     subItems: [
       { name: "Welcome", desc: "Entrance to the digital temple", icon: Star },
       { name: "Latest", desc: "News and recent updates", icon: Newspaper }
-    ] 
+    ]
   },
-  { 
-    name: "Gurudev", 
-    icon: User, 
-    id: "gurudev", 
+  {
+    name: "Gurudev",
+    icon: User,
+    id: "gurudev",
     subItems: [
       { name: "Life Story", desc: "The journey of Sree Lahari Krishna", icon: HistoryIcon },
       { name: "Philosophy", desc: "Core spiritual principles", icon: Eye },
       { name: "Divine Presence", desc: "Understanding the Master", icon: Sun }
-    ] 
+    ]
   },
-  { 
-    name: "Ashram", 
-    icon: MapPin, 
-    id: "ashram", 
+  {
+    name: "Ashram",
+    icon: MapPin,
+    id: "ashram",
     subItems: [
       { name: "About Us", desc: "History and purpose", icon: Info },
       { name: "Sacred Spaces", desc: "Explore the temple grounds", icon: Map },
       { name: "Milestones", desc: "Significant dates and events", icon: List }
-    ] 
+    ]
   },
-  { 
-    name: "Wisdom", 
-    icon: BookOpen, 
-    id: "teachings", 
+  {
+    name: "Wisdom",
+    icon: BookOpen,
+    id: "teachings",
     subItems: [
       { name: "Teachings", desc: "Divine words and insights", icon: MessageCircle },
       { name: "Reflections", desc: "Daily wisdom for the path", icon: Quote },
       { name: "Literature", desc: "Sacred texts and publications", icon: Book }
-    ] 
+    ]
   },
-  { 
-    name: "Seva", 
-    icon: HandHelping, 
-    id: "service", 
+  {
+    name: "Seva",
+    icon: HandHelping,
+    id: "service",
     subItems: [
       { name: "Selfless Action", desc: "Participate in ashram service", icon: Sparkles },
       { name: "Festivals", desc: "Upcoming sacred gatherings", icon: Calendar },
       { name: "Support", desc: "Sustain the ashram's mission", icon: Heart }
-    ] 
+    ]
   },
-  { 
-    name: "Library", 
-    icon: ImageIcon, 
-    id: "media", 
+  {
+    name: "Library",
+    icon: ImageIcon,
+    id: "media",
     subItems: [
       { name: "Gallery", desc: "Moments of divine grace", icon: ImageIcon },
       { name: "Discourses", desc: "Video library of teachings", icon: Video },
       { name: "Audio", desc: "Chants and spiritual music", icon: Mic2 }
-    ] 
+    ]
   },
-  { 
-    name: "Connect", 
-    icon: Mail, 
-    id: "connect", 
+  {
+    name: "Connect",
+    icon: Mail,
+    id: "connect",
     subItems: [
       { name: "Visit Us", desc: "Location and travel guide", icon: MapPin },
       { name: "Stay", desc: "Guest accommodations", icon: Home },
       { name: "Get in Touch", desc: "Reach out for guidance", icon: MessageCircle }
-    ] 
+    ]
   },
 ];
 
 function NavItem({ item, hoveredItem, setHoveredItem }: any) {
   return (
-    <div 
+    <div
       className="relative flex items-center py-2"
       onMouseEnter={() => setHoveredItem(item.id)}
     >
@@ -108,8 +108,8 @@ function NavItem({ item, hoveredItem, setHoveredItem }: any) {
         whileTap={{ scale: 0.95 }}
         className={cn(
           "w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 relative z-20",
-          hoveredItem === item.id 
-            ? "bg-white text-black" 
+          hoveredItem === item.id
+            ? "bg-white text-black"
             : "text-white/20 hover:text-white/60"
         )}
       >
@@ -127,7 +127,7 @@ function NavItem({ item, hoveredItem, setHoveredItem }: any) {
           >
             <div className="space-y-4">
               {item.subItems.map((sub: any, i: number) => (
-                <button 
+                <button
                   key={sub.name}
                   className="flex items-center gap-4 group/sub w-full text-left"
                 >
@@ -153,16 +153,16 @@ export default function SidebarNav() {
 
   return (
     <nav 
-      className="fixed left-0 top-0 bottom-0 z-[1000] hidden md:flex flex-col items-center justify-center w-16 bg-black/40 backdrop-blur-sm border-r border-white/5"
+      className="fixed left-0 top-0 bottom-0 z-[1000] hidden md:flex flex-col items-center justify-center w-16"
       onMouseLeave={() => setHoveredItem(null)}
     >
       <div className="flex flex-col gap-2">
         {navItems.map((item) => (
-          <NavItem 
-            key={item.id} 
-            item={item} 
-            hoveredItem={hoveredItem} 
-            setHoveredItem={setHoveredItem} 
+          <NavItem
+            key={item.id}
+            item={item}
+            hoveredItem={hoveredItem}
+            setHoveredItem={setHoveredItem}
           />
         ))}
       </div>
