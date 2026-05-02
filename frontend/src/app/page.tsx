@@ -16,7 +16,7 @@ export default function Home() {
   ];
 
   return (
-    <main className="relative min-h-screen w-full bg-[#000000] overflow-hidden flex font-sans">
+    <main className="relative min-h-screen w-full bg-[#FFFFFF] overflow-hidden flex font-sans">
       {/* IMMERSIVE BACKGROUND */}
       <SacredBackground />
 
@@ -27,15 +27,32 @@ export default function Home() {
       <div className="flex-1 ml-16 md:ml-20 relative flex flex-col items-center justify-center py-12 px-8 z-10">
 
         {/* TOP LEVEL SPIRITUAL ANCHORS */}
-        <div className="absolute top-12 left-12 right-12 flex justify-between items-center z-50 pointer-events-none">
+        <div className="absolute top-1 left-12 right-12 flex justify-between items-center z-50 pointer-events-none px-4 md:px-12">
+
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 2, ease: "easeOut" }}
           >
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-serif font-bold text-white tracking-tight drop-shadow-glow">
+            <h2 className="text-lg md:text-xl lg:text-2xl font-serif font-bold text-royal-gold tracking-tighter drop-shadow-sm">
               One God!
             </h2>
+          </motion.div>
+
+          {/* CENTRAL SACRED LOGO */}
+          <motion.div
+            initial={{ opacity: 0, y: -20, scale: 0.8 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 2, ease: "easeOut" }}
+            className="pointer-events-auto"
+          >
+            <div className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 rounded-full overflow-hidden border border-dawn-gold/20 shadow-lg bg-white">
+              <img
+                src="/logo.png"
+                alt="Sacred Ashram Logo"
+                className="w-full h-full object-cover"
+              />
+            </div>
           </motion.div>
 
           <motion.div
@@ -43,69 +60,80 @@ export default function Home() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 2, ease: "easeOut" }}
           >
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-serif font-bold text-white tracking-tight drop-shadow-glow">
+            <h2 className="text-lg md:text-xl lg:text-2xl font-serif font-bold text-royal-gold tracking-tighter drop-shadow-sm">
               One Nation!
             </h2>
           </motion.div>
         </div>
 
+
+
         {/* VERTICAL DEVOTIONAL STACK */}
-        <div className="flex flex-col items-center space-y-12 md:space-y-14">
+        <div className="flex flex-col items-center w-full max-w-7xl">
 
-          {/* 1. THE SACRED PORTAL (TOP) */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 2.5, ease: "easeOut" }}
-            className="relative"
-          >
-            <div className="absolute inset-0 flex items-center justify-center -z-10">
-              <div className="w-[120px] h-[120px] bg-white/5 blur-[40px] rounded-full" />
-            </div>
+          {/* MAIN CONTENT ROW (Message + Portal) */}
+          <div className="flex flex-col lg:flex-row items-center justify-center w-full space-y-12 lg:space-y-0 lg:space-x-16 xl:space-x-24">
 
-            <div className="relative w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48">
-              <div className="absolute inset-0 -m-2 border border-white/10 rounded-full" />
-              <div className="relative w-full h-full rounded-full overflow-hidden border border-white/20 shadow-[0_0_40px_rgba(0,0,0,0.8)]">
-                <img
-                  src="/Lahari.jpg"
-                  alt="Gurudev Sree Lahari Krishna"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-          </motion.div>
+            {/* CENTRAL SPIRITUAL MESSAGE */}
+            <div className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-4 md:space-y-6 max-w-2xl">
+              {messageLayers.map((layer, index) => (
+                <motion.p
+                  key={index}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1.2, delay: 0.5 + (index * 0.15) }}
+                  className="text-xl md:text-2xl lg:text-3xl font-serif text-silence-charcoal/90 leading-relaxed tracking-wide italic font-medium"
+                  style={{ textShadow: "0 1px 2px rgba(212,175,55,0.1)" }}
+                >
+                  {layer}
+                </motion.p>
+              ))}
 
-          {/* 2. THE SEVEN LAYERS OF SPIRITUAL MESSAGE (BOTTOM) - Refined & Moderate */}
-          <div className="flex flex-col items-center text-center space-y-4 md:space-y-6 w-full">
-            {messageLayers.map((layer, index) => (
-              <motion.p
-                key={index}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.2, delay: 1 + (index * 0.15) }}
-                className="text-xl md:text-2xl lg:text-3xl font-serif text-white/80 leading-relaxed tracking-wide italic"
+              {/* Subtle Entrance CTA */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 2.5 }}
+                className="pt-10 w-full flex justify-center lg:justify-start"
               >
-                {layer}
-              </motion.p>
-            ))}
+                <button className="px-12 py-3 rounded-none border border-dawn-gold text-royal-gold text-[11px] uppercase tracking-[0.5em] hover:bg-dawn-gold hover:text-white transition-all duration-700 shadow-sm hover:shadow-lg">
+                  Enter Sanctuary
+                </button>
+              </motion.div>
+            </div>
 
-            {/* Subtle Entrance CTA */}
+            {/* THE SACRED PORTAL (Now on the Right) */}
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 3 }}
-              className="pt-10"
+              initial={{ opacity: 0, scale: 0.95, x: 20 }}
+              animate={{ opacity: 1, scale: 1, x: 0 }}
+              transition={{ duration: 2.5, ease: "easeOut" }}
+              className="relative"
             >
-              <button className="px-10 py-3 rounded-full border border-white/5 text-white/20 text-[10px] uppercase tracking-[0.5em] hover:text-white/60 hover:border-white/20 hover:bg-white/5 transition-all duration-700">
-                Enter Sanctuary
-              </button>
+              <div className="absolute inset-0 flex items-center justify-center -z-10">
+                <div className="w-[180px] h-[180px] bg-dawn-gold/10 blur-[50px] rounded-full" />
+              </div>
+
+              <div className="relative w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64">
+                <div className="absolute inset-0 -m-4 border-2 border-dawn-gold/20 rounded-full" />
+                <div className="absolute inset-0 -m-2 border border-dawn-gold/40 rounded-full" />
+                <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-dawn-gold shadow-[0_20px_50px_rgba(212,175,55,0.25)]">
+                  <img
+                    src="/Lahari.jpg"
+                    alt="Gurudev Sree Lahari Krishna"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
             </motion.div>
+
           </div>
         </div>
       </div>
 
-      {/* GLOBAL AMBIENCE */}
-      <div className="fixed inset-0 pointer-events-none z-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.95)_100%)]" />
+
+      {/* GLOBAL AMBIENCE - Soft White Gradient */}
+      <div className="fixed inset-0 pointer-events-none z-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(212,175,55,0.05)_100%)]" />
     </main>
+
   );
 }

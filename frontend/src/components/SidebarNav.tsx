@@ -109,9 +109,10 @@ function NavItem({ item, hoveredItem, setHoveredItem }: any) {
         className={cn(
           "w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 relative z-20",
           hoveredItem === item.id
-            ? "bg-white text-black"
-            : "text-white/20 hover:text-white/60"
+            ? "bg-black text-white shadow-lg"
+            : "text-black/30 hover:text-black/60"
         )}
+
       >
         <item.icon size={20} />
       </motion.button>
@@ -145,6 +146,7 @@ function NavItem({ item, hoveredItem, setHoveredItem }: any) {
         )}
       </AnimatePresence>
     </div>
+
   );
 }
 
@@ -169,3 +171,4 @@ export default function SidebarNav() {
     </nav>
   );
 }
+
