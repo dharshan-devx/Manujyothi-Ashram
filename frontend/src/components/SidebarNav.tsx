@@ -152,7 +152,7 @@ export default function SidebarNav() {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
 
   return (
-    <nav 
+    <nav
       className="fixed left-0 top-0 bottom-0 z-[1000] hidden md:flex flex-col items-center justify-center w-16"
       onMouseLeave={() => setHoveredItem(null)}
     >

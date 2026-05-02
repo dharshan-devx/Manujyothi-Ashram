@@ -7,7 +7,7 @@ import SacredBackground from "@/components/SacredBackground";
 export default function Home() {
   const messageLayers = [
     "Our Lord God Lahari Krishna alone is",
-    "Holy! Holy!! Holy!!!" ,
+    "Holy! Holy!! Holy!!!",
     "He liveth Forever.",
     "He has Redeemed us by the love of His Supreme Sacrifice.",
     "Praise Him.",
@@ -22,10 +22,10 @@ export default function Home() {
 
       {/* SIDEBAR NAVIGATION */}
       <SidebarNav />
-      
+
       {/* MAIN CONTENT AREA */}
       <div className="flex-1 ml-16 md:ml-20 relative flex flex-col items-center justify-center py-12 px-8 z-10">
-        
+
         {/* TOP LEVEL SPIRITUAL ANCHORS */}
         <div className="absolute top-12 left-12 right-12 flex justify-between items-center z-50 pointer-events-none">
           <motion.div
@@ -51,7 +51,7 @@ export default function Home() {
 
         {/* VERTICAL DEVOTIONAL STACK */}
         <div className="flex flex-col items-center space-y-12 md:space-y-14">
-          
+
           {/* 1. THE SACRED PORTAL (TOP) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -66,9 +66,9 @@ export default function Home() {
             <div className="relative w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48">
               <div className="absolute inset-0 -m-2 border border-white/10 rounded-full" />
               <div className="relative w-full h-full rounded-full overflow-hidden border border-white/20 shadow-[0_0_40px_rgba(0,0,0,0.8)]">
-                <img 
-                  src="/Lahari.jpg" 
-                  alt="Gurudev Sree Lahari Krishna" 
+                <img
+                  src="/Lahari.jpg"
+                  alt="Gurudev Sree Lahari Krishna"
                   className="w-full h-full object-cover"
                 />
               </div>
