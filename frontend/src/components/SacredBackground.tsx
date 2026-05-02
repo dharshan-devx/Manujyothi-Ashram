@@ -6,7 +6,14 @@ import { useEffect, useState } from "react";
 export default function SacredBackground() {
   const [particles, setParticles] = useState<{ id: number; x: number; y: number; size: number; duration: number }[]>([]);
 
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+
   useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePos({ x: e.clientX, y: e.clientY });
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    
     // Generate static-ish particles that drift slowly
     const p = Array.from({ length: 40 }).map((_, i) => ({
       id: i,
@@ -16,10 +23,22 @@ export default function SacredBackground() {
       duration: Math.random() * 20 + 20,
     }));
     setParticles(p);
+
+    return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
   return (
     <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden bg-white">
+      {/* MOUSE-FOLLOWING DIVINE AURA */}
+      <motion.div
+        animate={{
+          x: mousePos.x - 200,
+          y: mousePos.y - 200,
+        }}
+        transition={{ type: "spring", damping: 30, stiffness: 50, restDelta: 0.001 }}
+        className="absolute w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(212,175,55,0.08)_0%,transparent_70%)] rounded-full blur-[40px] z-0"
+      />
+
       {/* Deep Radial Glows for 3D Depth */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(212,175,55,0.05)_0%,transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(212,175,55,0.03)_0%,transparent_50%)]" />
@@ -59,7 +78,9 @@ export default function SacredBackground() {
 
       {/* Vignette - Inverted for light mode or softened */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(255,255,255,0.1)_100%)]" />
-    </div>
 
+      {/* DIVINE FRAME - High Premium Finish */}
+      <div className="absolute inset-0 border-[12px] border-dawn-gold/5 pointer-events-none z-10" />
+    </div>
   );
 }

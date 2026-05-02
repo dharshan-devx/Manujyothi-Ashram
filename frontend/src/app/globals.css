@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -10,6 +11,7 @@
   --color-ivory: #FFFFF0;
   
   --font-serif: "Playfair Display", serif;
+  --font-royal: "Cinzel", serif;
   --font-sans: "Inter", sans-serif;
   
   --shadow-sacred: 0 0 50px rgba(212, 175, 55, 0.2);
@@ -50,3 +52,25 @@ body {
   filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.4));
 }
 
+@keyframes shine {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.animate-shine {
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(212, 175, 55, 0.2) 25%, 
+    rgba(212, 175, 55, 0.8) 50%, 
+    rgba(212, 175, 55, 0.2) 75%, 
+    transparent 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shine 6s linear infinite;
+}
+
+.sacred-glow {
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.3), 0 0 40px rgba(212, 175, 55, 0.1);
+}
