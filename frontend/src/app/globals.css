@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@theme {
+  --color-dawn-gold: #FFD700;
+  --color-dawn-saffron: #F4A460;
+  --color-dawn-orange: #FF8C00;
+  --color-silence-charcoal: #0D0D0D;
+  --color-silence-blue: #0A0F1E;
+  --color-ethereal-white: #F8F9FA;
+  
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+  
+  --shadow-sacred: 0 0 50px rgba(255, 215, 0, 0.1);
+}
+
+:root {
+  --background: #000000;
+  --foreground: var(--color-ethereal-white);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #000000;
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Glassmorphism Refined */
+.glass-sacred {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
